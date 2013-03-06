@@ -25,25 +25,3 @@
  IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-#import <Foundation/Foundation.h>
-
-@interface NSDate (KKDExtensions)
-
-+ (NSDate *)now;
-+ (NSDate *)today;
-
-+ (NSDate *)oneYearAgo;
-+ (NSDate *)oneYearAhead;
-
-+ (NSDate *)startOfWeek:(NSInteger)week;
-
-+ (NSInteger)weekOfYearForDate:(NSDate *)date;
-+ (NSInteger)currentWeekOfYear;
-- (NSInteger)weekOfYear;
-
-+ (NSInteger)numberOfWeeksInYearOfDate:(NSDate *)date;
-+ (NSInteger)numberOfWeeksThisYear;
-- (NSInteger)numberOfWeeksInYear;
-
-@end

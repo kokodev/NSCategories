@@ -26,24 +26,23 @@
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+
 #import <Foundation/Foundation.h>
 
-@interface NSDate (KKDExtensions)
+@interface NSNumber (KKDRubyIntExtensions)
 
-+ (NSDate *)now;
-+ (NSDate *)today;
+- (void)times:(void (^)(NSNumber *))block;
 
-+ (NSDate *)oneYearAgo;
-+ (NSDate *)oneYearAhead;
+- (void)upto:(NSNumber *)maximum do:(void (^)(NSNumber *))block;
 
-+ (NSDate *)startOfWeek:(NSInteger)week;
+- (void)downto:(NSNumber *)minimum do:(void (^)(NSNumber *))block;
 
-+ (NSInteger)weekOfYearForDate:(NSDate *)date;
-+ (NSInteger)currentWeekOfYear;
-- (NSInteger)weekOfYear;
+- (BOOL)even;
 
-+ (NSInteger)numberOfWeeksInYearOfDate:(NSDate *)date;
-+ (NSInteger)numberOfWeeksThisYear;
-- (NSInteger)numberOfWeeksInYear;
+- (BOOL)odd;
+
+- (NSNumber *)next;
+
+- (NSNumber *)pred;
 
 @end
