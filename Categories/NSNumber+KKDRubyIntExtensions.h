@@ -29,20 +29,54 @@
 
 #import <Foundation/Foundation.h>
 
+// The KKDRubyIntExtensions Category can be used to handle NSNumber objects like int objects
+// in Ruby. Only the most commonly used methods are defined yet.
+
 @interface NSNumber (KKDRubyIntExtensions)
 
+// Iterates the given block n times, passing in values from 0 to n - 1.
+//
+// For example:
+// [@5 times:^(NSNumber *current){
+//     NSLog("%@", current);
+// }];
+//
+// Produces: "0 1 2 3 4"
+//
 - (void)times:(void (^)(NSNumber *))block;
 
-- (void)upto:(NSNumber *)maximum do:(void (^)(NSNumber *))block;
+// Iterates the given block, passing in integer values from the number up to and including limit.
+//
+// For example:
+// [@5 upto:@10 do:^(NSNumber *current){
+//     NSLog("%@", current);
+// }];
+//
+// Produces: "5 6 7 8 9 10"
+//
+- (void)upto:(NSNumber *)limit do:(void (^)(NSNumber *))block;
 
-- (void)downto:(NSNumber *)minimum do:(void (^)(NSNumber *))block;
+// Iterates the given block, passing decreasing values from the number down to and including limit.
+//
+// For example:
+// [@5 downto:@1 do:^(NSNumber *current){
+//     NSLog("%@", current);
+// }];
+//
+// Produces: "5 4 3 2 1"
+//
+- (void)downto:(NSNumber *)limit do:(void (^)(NSNumber *))block;
 
+// Returns true if the number is an even number.
 - (BOOL)even;
 
+// Returns true if the number is an odd number.
 - (BOOL)odd;
 
+// Returns the number equal to number.integerValue + 1
 - (NSNumber *)next;
 
+// Returns the number equal to number.integerValue - 1
 - (NSNumber *)pred;
 
 @end

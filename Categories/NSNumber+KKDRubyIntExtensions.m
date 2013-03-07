@@ -37,16 +37,16 @@
     }
 }
 
-- (void)upto:(NSNumber *)maximum do:(void (^)(NSNumber *))block
+- (void)upto:(NSNumber *)limit do:(void (^)(NSNumber *))block
 {
-    for (int i = self.integerValue; i <= maximum.integerValue ; i++) {
+    for (int i = self.integerValue; i <= limit.integerValue ; i++) {
         block(@(i));
     }    
 }
 
-- (void)downto:(NSNumber *)minimum do:(void (^)(NSNumber *))block
+- (void)downto:(NSNumber *)limit do:(void (^)(NSNumber *))block
 {
-    for (int i = self.integerValue; i >= minimum.integerValue ; i--) {
+    for (int i = self.integerValue; i >= limit.integerValue ; i--) {
         block(@(i));
     }
 }
