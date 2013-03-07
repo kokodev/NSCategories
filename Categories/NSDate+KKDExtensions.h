@@ -34,16 +34,19 @@
 + (NSDate *)today;
 
 + (NSDate *)oneYearAgo;
+- (NSDate *)oneYearAgo;
 + (NSDate *)oneYearAhead;
+- (NSDate *)oneYearAhead;
 
 + (NSDate *)startOfWeek:(NSInteger)week;
++ (NSDate *)startOfWeek:(NSInteger)week inYear:(NSInteger)year;
 
-+ (NSInteger)weekOfYearForDate:(NSDate *)date;
 + (NSInteger)currentWeekOfYear;
++ (NSInteger)weekOfYearForDate:(NSDate *)date;
 - (NSInteger)weekOfYear;
 
 + (NSInteger)numberOfWeeksInYearOfDate:(NSDate *)date;
-+ (NSInteger)numberOfWeeksThisYear;
 - (NSInteger)numberOfWeeksInYear;
++ (NSInteger)numberOfWeeksThisYear;
 
 @end

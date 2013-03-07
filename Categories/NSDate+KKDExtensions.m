@@ -54,10 +54,24 @@
                                                         options:0];
 }
 
+- (NSDate *)oneYearAgo
+{
+    return [[NSCalendar currentCalendar] dateByAddingComponents:[NSDate componentsWithYearOffset:-1]
+                                                         toDate:self
+                                                        options:0];
+}
+
 + (NSDate *)oneYearAhead
 {
     return [[NSCalendar currentCalendar] dateByAddingComponents:[self componentsWithYearOffset:1]
                                                          toDate:[NSDate date]
+                                                        options:0];
+}
+
+- (NSDate *)oneYearAhead
+{
+    return [[NSCalendar currentCalendar] dateByAddingComponents:[NSDate componentsWithYearOffset:1]
+                                                         toDate:self
                                                         options:0];
 }
 
@@ -66,13 +80,31 @@
 + (NSDate *)startOfWeek:(NSInteger)week
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSWeekOfYearCalendarUnit | NSYearForWeekOfYearCalendarUnit
+    NSDateComponents *components = [calendar components:NSWeekOfYearCalendarUnit | NSWeekdayCalendarUnit | NSYearCalendarUnit
                                                fromDate:[NSDate date]];
     
     [components setWeekOfYear:week];
-    [components setWeekday:1];
+    [components setWeekday:calendar.firstWeekday];
     
     return [calendar dateFromComponents:components];
+}
+
++ (NSDate *)startOfWeek:(NSInteger)week inYear:(NSInteger)year
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSWeekOfYearCalendarUnit | NSWeekdayCalendarUnit | NSYearCalendarUnit
+                                               fromDate:[NSDate date]];
+    
+    [components setYear:year];
+    [components setWeekOfYear:week];
+    [components setWeekday:calendar.firstWeekday];
+    
+    return [calendar dateFromComponents:components];
+}
+
++ (NSInteger)currentWeekOfYear
+{
+    return [self weekOfYearForDate:[NSDate date]];
 }
 
 + (NSInteger)weekOfYearForDate:(NSDate *)date
@@ -81,11 +113,6 @@
                                                                           fromDate:date];
     
     return currentComponents.weekOfYear;
-}
-
-+ (NSInteger)currentWeekOfYear
-{
-    return [self weekOfYearForDate:[NSDate date]];
 }
 
 - (NSInteger)weekOfYear
@@ -109,14 +136,14 @@
     return [calendar rangeOfUnit:NSWeekOfYearCalendarUnit inUnit:NSYearForWeekOfYearCalendarUnit forDate:tmpDate].length;
 }
 
-+ (NSInteger)numberOfWeeksThisYear
-{
-    return [self numberOfWeeksInYearOfDate:[NSDate date]];
-}
-
 - (NSInteger)numberOfWeeksInYear
 {
     return [self.class numberOfWeeksInYearOfDate:self];
+}
+
++ (NSInteger)numberOfWeeksThisYear
+{
+    return [self numberOfWeeksInYearOfDate:[NSDate date]];
 }
 
 #pragma mark - Private Helper Methods
