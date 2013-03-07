@@ -1,7 +1,7 @@
 # NSCategories Collection
 ============
 
-Extension Categories for some Cocoa Datatypes
+The NSCatetory Extension Collection provides simplified methods for some Cocoa Datatypes. This collection will grow over time. Also, the documentation will be added soon!
 
 ## Available Extensions
 
