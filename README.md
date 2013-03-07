@@ -1,12 +1,16 @@
 # NSCategories Collection
 ============
 
-The NSCategories extension collection provides simplified methods for some Cocoa datatypes. This collection will grow over time. Also, the documentation will be added soon!
+The NSCategories extension collection provides simplified methods for some Cocoa datatypes that I use in some of my projects. This collection will grow over time.
 
 ## Available Extensions
 
 + NSDate - Handling of calendar weeks
 + NSNumber - Rubylike Handling of Integers
+
+## Samples
+
+Please have a look in the unit tests (Kiwi specs) for the specific categories within the Xcode folder to get an overview of how the extension methods work. There should be also samples in the header files of the categories.
 
 ## License (BSD)
 
